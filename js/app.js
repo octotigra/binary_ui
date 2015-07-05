@@ -11,13 +11,17 @@ var Controller = function(obj) {
     
     //add listener
     $("#student-exams-button").on("click", function() {
-        obj.updateExams();
-    })
+       obj.updateExams();
+    });
 
+ //   this approach didn't work out
+ //   $("#student-exams-button").click(obj["clickHandlers"]["#student-exams-button"])();
+    
 
+    //render changes
+    setInterval(ifExamsChanged, 100);
 
-   function ifExamsChanged() {
-        console.log("I'm worging fast");
+    function ifExamsChanged() {
         
         if (obj.model.changed) {
             $("#exams").empty();
@@ -25,16 +29,10 @@ var Controller = function(obj) {
             obj.model.changed = false;
         }
     }
-
-
-    //render changes
-    setInterval(ifExamsChanged, 100);
     
-
     return obj;
 } 
 
- 
 var Student = new Model({
     name: 'Piotr',
     age: 22,
@@ -50,6 +48,7 @@ var Student = new Model({
 var StudentController = new Controller({
     model: Student,
     elementId: 'student-container',
+    
     render: function(){
 
         return "<span>"+ this.model.name + "</span>" 
@@ -62,12 +61,12 @@ var StudentController = new Controller({
         return  "<span id='exams'>" + "Exams taken: "+ this.model.examsTaken + "</span>";
     },
     clickHandlers: {
-        tryStoreFunction: 'updateExams'
+        '#student-exams-button': 'updateExams'
     },
     updateExams: function(){
         this.model.takeExam();
-        console.log(this.model.examsTaken);
     }
+    
 });
 
 })(jQuery);
