@@ -1,0 +1,26 @@
+html, 
+body {
+	height: 100%;
+}
+
+#student-container {
+	width: 50%;
+	height: 50%;
+	border: 1px solid grey;
+	margin-left: auto;
+	margin-right:auto;
+	margin-top: 10%;
+	padding: 40px;
+	font-size: 24px;
+}
+
+#student-container span {
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+#student-container button{
+	height: 30px;
+}
+
