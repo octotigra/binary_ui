@@ -14,7 +14,7 @@ var Controller = function(obj) {
        obj.updateExams();
     });
 
- //   this approach didn't work out
+ //   this approach didn't work out. Invocation string as function works in global scope
  //   $("#student-exams-button").click(obj["clickHandlers"]["#student-exams-button"])();
     
 
